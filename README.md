@@ -61,6 +61,32 @@ Example:
 
     $ python3 pingport.py --input_file=sample-data/random-1000-ips.txt --port 80 --verbose
 
+Example output with `--verbose`:
+
+    ...
+    Ping 169.255.59.7:80 OK...
+    Ping 183.81.166.108:80 OK...
+    Ping 103.246.18.68:80 OK...
+    Ping 199.59.242.151:80 OK...
+    Ping 67.227.226.240:80 OK...
+    Ping 114.200.196.96:80 OK...
+    Ping 216.218.248.148:80 failed... (TimeoutError: '')
+    Ping 110.45.157.131:80 failed... (TimeoutError: '')
+    110.45.157.131:80 is flappy
+    Ping 123.30.191.33:80 failed... (TimeoutError: '')
+    Ping 187.4.152.44:80 failed... (TimeoutError: '')
+    187.4.152.44:80 is down
+    Ping 202.30.244.19:80 failed... (TimeoutError: '')
+    Ping 187.29.147.44:80 failed... (TimeoutError: '')
+    ...
+  
+Example output without `--verbose` (on stderr):
+
+    ...
+    110.45.157.131:80 is flappy
+    187.4.152.44:80 is down
+    ...
+
 You may have to adjust `--interval` and `--timeout` according to your network speed and
 the size of your host list - the defaults are pretty conservative with 5 minutes between
 pings and 30 second timeouts. The sample domain names and ips in the `sample-data` folder
@@ -108,3 +134,26 @@ weeks after I wrote them).
 I like to log results but don't like to deal with log rotation; for network monitoring
 RRD databases fit the bill as they have deterministic size. Also, you can easily 
 create nice charts from them later.
+
+## The questions
+
+1) **How would you deploy this as a script/service/etc?**  
+Honestly, I would rather use a proper NMS for this (there are some F/OSS options). If I had to
+distribute a Python application for Linux I would probably create deb and rpm packages.
+
+2) **How would you work with developers to resolve any systems issues?**  
+I would help them diagnose the issue in production and if they are not using a log
+aggregator I would install a [sentry](https://sentry.io) instance for them.
+
+3) **What, if any, would the impact be of your script on the production service?**  
+If the interval is kept above 1 minute I don't think there will be any meaningful impact - maybe
+an extra thousand entries / day in the logs but any application worth its salary should be able 
+to handle that.
+
+
+
+
+
+
+
+

@@ -82,8 +82,8 @@ def main():
             host2filename(argv, host),
             "--step", str(argv.interval),
             "--start", "0",
-            f"DS:connect:GAUGE:{int(argv.interval + 2 * argv.timeout)}:0:U",
-            f"DS:time:GAUGE:{int(argv.interval + 2 * argv.timeout)}:0:U",
+            f"DS:connect:GAUGE:{int(argv.interval + argv.timeout)}:0:U",
+            f"DS:time:GAUGE:{int(argv.interval + argv.timeout)}:0:U",
             f"RRA:AVERAGE:0.5:1:1d",
             f"RRA:AVERAGE:0.5:5:5d",
             f"RRA:AVERAGE:0.5:60:120",
@@ -114,6 +114,7 @@ async def pingport(loop: asyncio.AbstractEventLoop, host: str, interval: int, ar
         else:
             if argv.verbose:
                 print(f"Ping {hostname} OK...")
+            conn.close()
             connected = argv.timeout
             elapsed = loop.time() - started
 
