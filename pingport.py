@@ -74,7 +74,7 @@ def main():
         if argv.verbose:
             print(" OK!")
 
-    os.makedirs("rrd", exist_ok=True)
+    os.makedirs(argv.rrd, exist_ok=True)
     for host in hosts:
         if host not in IP_CACHE:
             continue
