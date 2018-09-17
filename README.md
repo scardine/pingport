@@ -1,6 +1,6 @@
-# Nylas Coding Challenge
+# Coding Challenge
 
-This is the assignment:
+The assignment:
 
 >Developers have been reporting flapping ports on various services in a cluster that you manage. Sometimes they see their services as up, and sometimes they’re down, with no clear reason as to why. They’ve asked you to diagnose the issue and given you a list of hosts to check. You’ve already vetted the network and don’t think it’s at fault.
 >
