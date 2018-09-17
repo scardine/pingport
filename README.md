@@ -142,18 +142,14 @@ Honestly, I would rather use a proper NMS for this (there are some F/OSS options
 distribute a Python application for Linux I would probably create deb and rpm packages.
 
 2) **How would you work with developers to resolve any systems issues?**  
-I would help them diagnose the issue in production and if they are not using a log
-aggregator I would install a [sentry](https://sentry.io) instance for them.
+I depends. If this is disaster recover I would apply my 3D: **D**efuse (get the service back as
+fast as possible), **D**ebrief (make a blameless postmortem to identify root causes), **D**efend (make
+arrangements to avoid the problem in the future).
+If it is one of that pesky intermittent bugs we are absolutely unable to reproduce on the staging 
+environment I would help them diagnose the issue in production (and if they are not using a log
+aggregator I would install a [sentry](https://sentry.io) instance for them).
 
 3) **What, if any, would the impact be of your script on the production service?**  
-If the interval is kept above 1 minute I don't think there will be any meaningful impact - maybe
+If the ping interval is kept above 1 minute I don't think there will be any meaningful impact - maybe
 an extra thousand entries / day in the logs but any application worth its salary should be able 
 to handle that.
-
-
-
-
-
-
-
-
