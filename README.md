@@ -126,7 +126,7 @@ environment](https://docs.python.org/3/library/venv.html) but will not cover thi
 Well, Python is likely to be present on any Linux machine so it is a great tool for fast 
 prototyping and making ad hoc scripts. Before Python, Perl used to be the swiss army knife of
 choice for the network administrator - but Python is an order of magnitude easier to 
-maintain (I kid you not, sometimes I had trouble understanding my own scripts a couple 
+maintain (I kid you not, sometimes I had trouble understanding my own Perl scripts a couple 
 weeks after I wrote them).
    
 ## Why RRD?
