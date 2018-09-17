@@ -59,7 +59,7 @@ may take a while to start). I'm also using RRD to record ping results. If you om
       
 Example:
 
-    python3 pingport.py --input_file=sample-data/random-1000-ips.txt --port 80 --verbose
+    $ python3 pingport.py --input_file=sample-data/random-1000-ips.txt --port 80 --verbose
 
 You may have to adjust `--interval` and `--timeout` according to your network speed and
 the size of your host list - the defaults are pretty conservative with 5 minutes between
@@ -73,19 +73,23 @@ working C compiler.
  
 If you are using a Mac, do:
 
-    brew install rrdtool
+    $ brew install rrdtool
     
 On Debian/Ubuntu do:
 
-    sudo apt-get install librrd-dev libpython3-dev
+    $ sudo apt-get install librrd-dev libpython3-dev
     
 On RHEL/CentOS:
 
-    sudo yum install rrdtool-devel python34-devel
+    $ sudo yum install rrdtool-devel python34-devel
     
-Clone this repo at 
-After installing the dependencies you can fire `pip` (you may want to create a [virtual
-environment](https://docs.python.org/3/library/venv.html), I will not cover this step here):
+Clone this repo:
+
+    $ git clone https://github.com/scardine/pingport.git
+    $ cd pingport
+
+After installing the dependencies you can fire `pip` (you probably want to create a [virtual
+environment](https://docs.python.org/3/library/venv.html) but will not cover this step here):
 
     pip install --user -r requirements.txt
     
